@@ -6,7 +6,7 @@
 //  Copyright © 2020 wangxu. All rights reserved.
 //
 import Foundation
-struct Router: LLCompatible {
+struct Router {
     static var configDict:Dictionary<String, Any>?
     static func loadConfigDict(pistName: String) {
         if let url = Bundle.main.url(forResource: pistName, withExtension: "plist") {
