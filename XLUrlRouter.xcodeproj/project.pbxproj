@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		783EC05A2424AB5B00E6CDA8 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783EC0582424AB5B00E6CDA8 /* ViewController2.swift */; };
+		783EC05D2424AC0A00E6CDA8 /* PropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 783EC05C2424AC0A00E6CDA8 /* PropertyList.plist */; };
 		7880F790242310A400F5F8B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7880F78F242310A400F5F8B2 /* AppDelegate.swift */; };
 		7880F792242310A400F5F8B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7880F791242310A400F5F8B2 /* SceneDelegate.swift */; };
 		7880F794242310A400F5F8B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7880F793242310A400F5F8B2 /* ViewController.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		783EC0582424AB5B00E6CDA8 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		783EC05C2424AC0A00E6CDA8 /* PropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyList.plist; sourceTree = "<group>"; };
 		7880F78C242310A400F5F8B2 /* XLUrlRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLUrlRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7880F78F242310A400F5F8B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7880F791242310A400F5F8B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,10 +117,12 @@
 		7880F78E242310A400F5F8B2 /* XLUrlRouter */ = {
 			isa = PBXGroup;
 			children = (
+				783EC05C2424AC0A00E6CDA8 /* PropertyList.plist */,
 				7880F7BF2423158500F5F8B2 /* XLUrlRouter */,
 				7880F78F242310A400F5F8B2 /* AppDelegate.swift */,
 				7880F791242310A400F5F8B2 /* SceneDelegate.swift */,
 				7880F793242310A400F5F8B2 /* ViewController.swift */,
+				783EC0582424AB5B00E6CDA8 /* ViewController2.swift */,
 				7880F795242310A400F5F8B2 /* Main.storyboard */,
 				7880F798242310A700F5F8B2 /* Assets.xcassets */,
 				7880F79A242310A700F5F8B2 /* LaunchScreen.storyboard */,
@@ -262,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7880F79C242310A700F5F8B2 /* LaunchScreen.storyboard in Resources */,
+				783EC05D2424AC0A00E6CDA8 /* PropertyList.plist in Resources */,
 				7880F799242310A700F5F8B2 /* Assets.xcassets in Resources */,
 				7880F797242310A400F5F8B2 /* Main.storyboard in Resources */,
 			);
@@ -292,6 +299,7 @@
 				7880F794242310A400F5F8B2 /* ViewController.swift in Sources */,
 				7880F790242310A400F5F8B2 /* AppDelegate.swift in Sources */,
 				7880F7C72423158500F5F8B2 /* UIViewController+URLNavigation.swift in Sources */,
+				783EC05A2424AB5B00E6CDA8 /* ViewController2.swift in Sources */,
 				7880F7C92423158500F5F8B2 /* Tool.swift in Sources */,
 				7880F7CC2423158500F5F8B2 /* Router.swift in Sources */,
 				7880F7C82423158500F5F8B2 /* LL.swift in Sources */,
