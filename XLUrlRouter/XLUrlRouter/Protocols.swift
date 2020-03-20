@@ -7,8 +7,8 @@
 //
 
 import Foundation
-typealias RouterClosure = (Dictionary<String, Any>?) -> ()
-protocol SHClosure {
+public typealias RouterClosure = (Dictionary<String, Any>?) -> ()
+public protocol SHClosure {
     // Mark: 用于回掉参数用的闭包
     var ll_getParams: RouterClosure? { get set }
     // Mark: 存储跳转的原始URL

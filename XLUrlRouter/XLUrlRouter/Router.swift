@@ -6,9 +6,9 @@
 //  Copyright © 2020 wangxu. All rights reserved.
 //
 import Foundation
-struct Router {
-    static var configDict:Dictionary<String, Any>?
-    static func loadConfigDict(pistName: String) {
+public struct Router {
+    public static var configDict:Dictionary<String, Any>?
+    public static func loadConfigDict(pistName: String) {
         if let url = Bundle.main.url(forResource: pistName, withExtension: "plist") {
             do {
                 let data = try Data(contentsOf: url)
@@ -20,7 +20,7 @@ struct Router {
         }
     }
     
-    static func go(urlString: String, query: Dictionary<String, Any>? = nil, animated: Bool, reverseBlock: @escaping(Dictionary<String, Any>?) -> ()) {
+    public static func go(urlString: String, query: Dictionary<String, Any>? = nil, animated: Bool, reverseBlock: @escaping(Dictionary<String, Any>?) -> ()) {
         guard let dict = configDict else {
             log("请按照说明添加对应的plist文件")
             return
@@ -32,7 +32,7 @@ struct Router {
         vc.ll_getParams = reverseBlock
         LL.pushViewController(LL.initVC(urlString: urlString, query: query, dict: dict), animated: animated, false)
     }
-    static func goBack(params: [String: Any]? = nil, animated: Bool) {
+    public static func goBack(params: [String: Any]? = nil, animated: Bool) {
         guard let vc:VCClosure = LL.lastViewController as? VCClosure else {
             log("将要返回的控制器没有遵守VCClosure协议")
             return
@@ -42,7 +42,7 @@ struct Router {
         }
         LL.popViewController(animated: animated)
     }
-    static func present(urlString: String, animated: Bool, completion: (() -> Void)? = nil) {
+    public static func present(urlString: String, animated: Bool, completion: (() -> Void)? = nil) {
         guard let dict = configDict else {
             log("请按照说明添加对应的plist文件")
             return

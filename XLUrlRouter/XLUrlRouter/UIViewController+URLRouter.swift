@@ -9,7 +9,7 @@
 import UIKit
 
 typealias VCClosure = UIViewController & SHClosure
-public extension LL where Base: UIViewController {
+extension LL where Base: UIViewController {
     
     /// 根据URL初始化控制器【概述】
     /// 根据URL初始化控制器，存储传来的参数【更详细的描述】
@@ -29,7 +29,7 @@ public extension LL where Base: UIViewController {
     ///
     /// - Note:供内部使用
     ///
-    static func initVC(urlString: String, query: Dictionary<String, Any>?, dict configDict: Dictionary<String, Any>) -> Base? {
+    internal static func initVC(urlString: String, query: Dictionary<String, Any>?, dict configDict: Dictionary<String, Any>) -> Base? {
         guard let url = URL(string: urlString) else {
             log("url输入错误，可能含有中文")
             return nil
