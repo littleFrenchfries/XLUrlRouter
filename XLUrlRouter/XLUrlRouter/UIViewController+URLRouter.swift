@@ -8,8 +8,40 @@
 
 import UIKit
 
-typealias VCClosure = UIViewController & SHClosure
+private struct StorageKey {
+    static var ll_getParams = "ll_getParams"
+    static var ll_originUrl = "ll_originUrl"
+    static var ll_params   = "ll_params"
+}
+
 extension LL where Base: UIViewController {
+    // Mark: 用于回掉参数用的闭包
+    var getParams: RouterClosure? {
+        set {
+            objc_setAssociatedObject(self.base, &StorageKey.ll_getParams, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
+        }
+        get {
+            return objc_getAssociatedObject(self.base, &StorageKey.ll_getParams) as? RouterClosure
+        }
+    }
+    // Mark: 存储跳转的原始URL
+    var originUrl: URL? {
+        set {
+            objc_setAssociatedObject(self.base, &StorageKey.ll_originUrl, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        get {
+            return objc_getAssociatedObject(self.base, &StorageKey.ll_originUrl) as? URL
+        }
+    }
+    // Mark: URL中传的参数 或者 单独传的参数
+    var params: Dictionary<String, Any>? {
+        set {
+            objc_setAssociatedObject(self.base, &StorageKey.ll_params, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        get {
+            return objc_getAssociatedObject(self.base, &StorageKey.ll_params) as? Dictionary<String, Any>
+        }
+    }
     
     /// 根据URL初始化控制器【概述】
     /// 根据URL初始化控制器，存储传来的参数【更详细的描述】
@@ -47,6 +79,12 @@ extension LL where Base: UIViewController {
             guard let config = configDict[urlScheme] else { return nil }
             if let configStr:String = config as? String {
                 anyClass = NSClassFromString(configStr)
+                if let _ = anyClass {
+                }else {
+                    guard let spaceName = Bundle.main.infoDictionary?["CFBundleExecutable"] else { return nil }
+                    guard let spaceNameStr = spaceName as? String else { return nil }
+                    anyClass = NSClassFromString(spaceNameStr + "." + configStr)
+                }
             }else if let dict: Dictionary<String, String> = config as? Dictionary<String, String> {
                 if dict.keys.contains(home) {
                     guard let homeValue = dict[home] else { return nil }
@@ -60,16 +98,16 @@ extension LL where Base: UIViewController {
                 }
             }
         }
-        guard let vcClass = anyClass as? VCClosure.Type else {
-            log("请将" + NSStringFromClass(anyClass ?? UIViewController.self) + "继承SHClosure协议")
+        guard let vcClass = anyClass as? UIViewController.Type else {
+            log("确定" + NSStringFromClass(anyClass ?? UIViewController.self) + "是UIViewController？")
             return nil
         }
         var vc = vcClass.init()
-        vc.ll_originUrl = url
+        vc.ll.originUrl = url
         if (query != nil) {
-            vc.ll_params = query
+            vc.ll.params = query
         }else {
-            vc.ll_params = url.ll.queryParameters
+            vc.ll.params = url.ll.queryParameters
         }
         return vc as? Base
     }

@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Router.loadConfigDict(pistName: "PropertyList")
+        Router.loadConfigDict(pistName: "PropertyList.plist")
         // Override point for customization after application launch.
         return true
     }

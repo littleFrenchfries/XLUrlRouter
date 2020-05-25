@@ -8,12 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,SHClosure {
-    var ll_getParams: RouterClosure?
-    
-    var ll_originUrl: URL?
-    
-    var ll_params: Dictionary<String, Any>?
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +34,7 @@ class ViewController: UIViewController,SHClosure {
     }
     
     @objc func pushClick() {
+//        Router.go(urlString: "tradeaider://qc/notarization", animated: true)
         Router.go(urlString: "tradeaider://qc/notarization?uid=1",query: ["uid": 3] , animated: true) { (params) in
             log("回到ViewController 参数=\(params ?? ["":""])")
         }

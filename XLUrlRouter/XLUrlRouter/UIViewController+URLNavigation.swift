@@ -15,10 +15,13 @@ public extension LL where Base: UIViewController {
         if #available(iOS 13.0, *) {
             let window = (UIApplication.shared.connectedScenes.first?.delegate as? UIWindowSceneDelegate)?.window
              resultVC = _topVC(window??.rootViewController)
+            if resultVC == nil {
+                let window = UIApplication.shared.keyWindow
+                resultVC = _topVC(window?.rootViewController)
+            }
         } else {
-            let window = UIApplication.shared.windows.first
+            let window = UIApplication.shared.keyWindow
             resultVC = _topVC(window?.rootViewController)
-            // Fallback on earlier versions
         }
         while resultVC?.presentedViewController != nil {
             resultVC = _topVC(resultVC?.presentedViewController)

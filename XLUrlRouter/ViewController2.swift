@@ -8,12 +8,7 @@
 
 import UIKit
 
-class ViewController2: UIViewController,SHClosure {
-    var ll_getParams: RouterClosure?
-    
-    var ll_originUrl: URL?
-    
-    var ll_params: Dictionary<String, Any>?
+class ViewController2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +19,7 @@ class ViewController2: UIViewController,SHClosure {
         push.setTitleColor(UIColor.blue, for: .normal)
         push.addTarget(self, action: #selector(pushClick), for: .touchUpInside)
         view.addSubview(push)
-        log(ll_params)
+        log(ll.params)
         let push2 = UIButton(type: .custom)
         push2.setTitle("dissmiss到下个页面", for: .normal)
         push2.setTitleColor(UIColor.blue, for: .normal)
