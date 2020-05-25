@@ -15,6 +15,7 @@ Router.loadConfigDict(pistName: "DCURLRouter")
 ```
 ![图片名称](https://upload-images.jianshu.io/upload_images/6573541-abff06c7caa7333b.png?imageMogr2/auto-orient/strip|imageView2/2/w/1132)  
 红线框内的两种注册方式都可以，代码中做了兼容处理，为了使框架更为友好
+
 3. 框架中有两个主文件Router和LL  
 * Router主要负责根据URL路径进行跳转的功能：
 * 1. 控制器的pushViewController功能：  
