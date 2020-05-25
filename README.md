@@ -16,7 +16,7 @@ Router.loadConfigDict(pistName: "DCURLRouter")
 ![图片名称](https://upload-images.jianshu.io/upload_images/6573541-abff06c7caa7333b.png?imageMogr2/auto-orient/strip|imageView2/2/w/1132)  
 红线框内的两种注册方式都可以，代码中做了兼容处理，为了使框架更为友好
 3. 框架中有两个主文件Router和LL  
-Router主要负责根据URL路径进行跳转的功能：
+* Router主要负责根据URL路径进行跳转的功能：
 * 1. 控制器的pushViewController功能：
 #```
 Router.go(urlString:"url路径",query: ["参数":参数] , animated:true) { (params)in
@@ -33,7 +33,7 @@ Router.present(urlString: "url路径", animated: true) {
 #```
 Router.goBack(params: ["uid":2], animated:true)
 #```  
-LL主要负责系统控制器跳转的功能，可以在任何地方进行跳转，不受限制
+* LL主要负责系统控制器跳转的功能，可以在任何地方进行跳转，不受限制
 * 1. 控制器的pushViewController功能：
 #```
 LL.pushViewController(vc, animated: animated,false)
@@ -45,15 +45,15 @@ LL.presentViewController(vc, animated: animated, completion: completion)
 * 3. 控制器的popViewController功能：
 #```
 LL.popViewController(animated: animated)
-#```
+#```  
 可以pop两次：
 #```
 LL.popTwiceViewController(animated: true)
-#```
+#```  
 也可以pop到跟控制器：
 #```
 LL.popToRootViewController(animated: true)
-#```
+#```  
 还可以pop多次：
 #```
 LL.popViewController(times: n, animated:true)
@@ -61,15 +61,15 @@ LL.popViewController(times: n, animated:true)
 * 4. 控制器的dismissViewController功能：
 #```
 LL.dismissViewController(animated: true)
-#```
+#```  
 可以dismiss两次：
 #```
 LL.dismissTwiceViewController(animated: true)
-#```
+#```  
 也可以dismiss到跟控制器：
 #```
  LL.dismissToRootViewController(animated: true)
- #```
+ #```  
 还可以dismiss多次：
 #```
 LL.dismissViewController(times: n, animated:true)
