@@ -14,7 +14,7 @@ private struct StorageKey {
     static var ll_params   = "ll_params"
 }
 
-extension LL where Base: UIViewController {
+public extension LL where Base: UIViewController {
     // Mark: 用于回掉参数用的闭包
     var getParams: RouterClosure? {
         set {
