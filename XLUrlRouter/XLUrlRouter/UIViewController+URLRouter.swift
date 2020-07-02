@@ -83,7 +83,8 @@ public extension LL where Base: UIViewController {
                 }else {
                     guard let spaceName = Bundle.main.infoDictionary?["CFBundleExecutable"] else { return nil }
                     guard let spaceNameStr = spaceName as? String else { return nil }
-                    anyClass = NSClassFromString(spaceNameStr + "." + configStr)
+                    let spaceNameStr1 = spaceNameStr.replacingOccurrences(of: "-", with: "_")
+                    anyClass = NSClassFromString(spaceNameStr1 + "." + configStr)
                 }
             }else if let dict: Dictionary<String, String> = config as? Dictionary<String, String> {
                 if dict.keys.contains(home) {
@@ -93,7 +94,8 @@ public extension LL where Base: UIViewController {
                     }else {
                         guard let spaceName = Bundle.main.infoDictionary?["CFBundleExecutable"] else { return nil }
                         guard let spaceNameStr = spaceName as? String else { return nil }
-                        anyClass = NSClassFromString(spaceNameStr + "." + homeValue)
+                        let spaceNameStr1 = spaceNameStr.replacingOccurrences(of: "-", with: "_")
+                        anyClass = NSClassFromString(spaceNameStr1 + "." + homeValue)
                     }
                 }
             }
